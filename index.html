@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Drico's Unblocked Games</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f0f0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 20px;
+        }
+        .game-button {
+            margin: 10px;
+            padding: 10px 20px;
+            background-color: #007bff;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        .game-button:hover {
+            background-color: #0056b3;
+        }
+        #popup {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-color: rgba(0, 0, 0, 0.7);
+            justify-content: center;
+            align-items: center;
+        }
+        #popup-content {
+            background-color: white;
+            padding: 20px;
+            border-radius: 10px;
+            text-align: center;
+        }
+        #popup img {
+            max-width: 100%;
+            height: auto;
+        }
+        #close-button {
+            margin-top: 10px;
+            padding: 10px;
+            background-color: #dc3545;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        #close-button:hover {
+            background-color: #c82333;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>Games</h1>
+    <button class="game-button" onclick="openPopup('game1')">Play OG 1V1.LOL</button>
+
+    <div id="popup">
+        <div id="popup-content">
+            <h2 id="popup-title"></h2>
+            <p id="popup-description"></p>
+            <img id="popup-image" src="" alt="Game Image">
+            <br>
+            <a id="play-button" class="game-button" href="#" target="_blank">Play Now</a>
+            <br>
+            <button id="close-button" onclick="closePopup()">Close</button>
+        </div>
+    </div>
+
+    <script>
+        const games = {
+            game1: {
+                title: "OG 1V1.LOL",
+                description: "1v1 game ig.",
+                image: "https://github.com/DricoLamborghini/OGv1.LOL/blob/main/logo.png?raw=true",
+                link: "https://dricolamborghini.github.io/OGv1.LOL/"
+            }
+        };
+
+        function openPopup(gameId) {
+            const game = games[gameId];
+            document.getElementById("popup-title").innerText = game.title;
+            document.getElementById("popup-description").innerText = game.description;
+            document.getElementById("popup-image").src = game.image;
+            document.getElementById("play-button").href = game.link;
+
+            document.getElementById("popup").style.display = "flex";
+        }
+
+        function closePopup() {
+            document.getElementById("popup").style.display = "none";
+        }
+    </script>
+
+</body>
+</html>
